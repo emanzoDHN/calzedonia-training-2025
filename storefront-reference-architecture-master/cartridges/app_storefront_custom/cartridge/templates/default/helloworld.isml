@@ -1,0 +1,32 @@
+<h1>Hello World Ismaele</h1>
+${pdict.product.name}
+<br>
+${pdict.color}
+<br>
+${dw.system.Site.getCurrent().getName()}
+<br>
+${session.getCustomer().getProfile().getLastName()}
+
+
+<div>
+  ${session.customer.profile.lastName}-
+  ${pdict.CurrentSession.customer.profile.lastName}-
+  ${pdict.CurrentCustomer.profile.lastName}-
+  ${dw.system.Site.getCurrent().getName()}-
+  ${dw.system.Site.current.name}
+
+</div>
+
+
+<div>
+  <isset name="x" value="12343" scope="session" />
+
+  <isset name="x" value="${12343}" scope="session" />
+
+  <iscomment> Session is implied here </iscomment>
+  <isset name="x" value="12343" />
+
+  ${session.custom.x}
+  ${pdict.CurrentSession.custom.x}
+
+</div>
