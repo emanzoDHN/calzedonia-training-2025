@@ -25,10 +25,11 @@ server.get('Start', consentTracking.consent, cache.applyDefaultCache, function (
     var Site = require('dw/system/Site');
     var PageMgr = require('dw/experience/PageMgr');
     var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-
     pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
     var page = PageMgr.getPage('homepage');
+
+  
 
     if (page && page.isVisible()) {
         res.page('homepage');

@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/login.js');
+    </isscript>
+
+    <div class="hero slant-down login-banner">
+        <h1 class="page-title">${Resource.msg('text.newsletter', 'forms', null)}</h1>
+    </div>
+    <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+
+    <div class="row justify-content-center equal-height">
+        <div class="col-sm-8 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form action="${URLUtils.url('Newsletter-Submit')}" class="edit-profile-form" method="POST" <isprint value="${pdict.trainingForm.attributes}" encoding="off" />>
+
+                        <div class="form-group
+                                <isif condition=" ${pdict.trainingForm.customer.firstname.mandatory === true}">required</isif>">
+                            <label class="form-control-label" for="firstName">
+                                <isprint value="${pdict.trainingForm.customer.firstname.label}" encoding="htmlcontent" />
+                            </label>
+                            <input type="text" class="form-control" id="firstName" <isprint
+                                value="${pdict.trainingForm.customer.firstname.attributes}" encoding="off" />>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="form-group
+                                <isif condition=" ${pdict.trainingForm.customer.lastname.mandatory === true}">required</isif>">
+                            <label class="form-control-label" for="lastName">
+                                <isprint value="${pdict.trainingForm.customer.lastname.label}" encoding="htmlcontent" />
+                            </label>
+                            <input type="text" class="form-control" id="lastName" <isprint
+                                value="${pdict.trainingForm.customer.lastname.attributes}" encoding="off" />>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="form-group
+                                <isif condition=" ${pdict.trainingForm.customer.email.mandatory === true}">required</isif>">
+                            <label class="form-control-label" for="email">
+                                <isprint value="${pdict.trainingForm.customer.email.label}" encoding="htmlcontent" />
+                            </label>
+                            <input type="text" class="form-control" id="email" <isprint value="${pdict.trainingForm.customer.email.attributes}"
+                                encoding="off" />>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.save', 'account', null)}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

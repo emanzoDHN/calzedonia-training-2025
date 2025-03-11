@@ -1,4 +1,14 @@
 <header>
+<isscript>
+    var Resource = require('dw/web/Resource');
+    var session = require('session');
+    var isLoggedCustomer = session.getCustomer().getProfile();
+    var custumerGender = isLoggedCustomer ? session.getCustomer().getProfile().getGender() : '';
+    custumerGender = custumerGender = 0 ?  '' : (custumerGender == 1 ? 'Mr.' : 'Mrs.');
+    var customerLastName = session.getCustomer().getProfile().getLastName();
+    var customerGreetings = Resource.msgf('header.greeting', 'account', '', custumerGender, customerLastName);
+    var ok = ok ;
+</isscript>
     <isinclude template="/components/header/skipNav" />
     <div class="header-banner slide-up d-none">
         <div class="container">
@@ -30,6 +40,9 @@
                             <div class="hidden-md-down">
                                 <isinclude url="${URLUtils.url('Account-Header')}" />
                                 <isinclude url="${URLUtils.url('Page-Locale')}" />
+                    
+
+                            
                             </div>
                             <button class="navbar-toggler d-md-none" type="button" aria-controls="sg-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                                 &#9776; <span class="hidden-xs-down">Menu</span>
